@@ -277,7 +277,9 @@ class CollabAddCurrentDocumentCommand(sublime_plugin.ApplicationCommand, Sublime
         if not client: return
         if sublime.active_window() == None: return
         if sublime.active_window().active_view() == None: return
-        sublime.active_window().show_input_panel("Enter new document name:", sublime.active_window().active_view().name(), self.add_current, None, None)
+        sublime.active_window().show_input_panel("Enter new document name:", self.current_file(), self.add_current, None, None)
     def is_enabled(self):
         global client
         return client
+    def current_file(self):
+        return os.path.split(sublime.active_window().active_view().file_name())[-1]
