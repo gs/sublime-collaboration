@@ -1,4 +1,4 @@
-import collab, sublime, sublime_plugin
+import collab, sublime, sublime_plugin, os
 
 class SublimeListener(sublime_plugin.EventListener):
     _events = {}
